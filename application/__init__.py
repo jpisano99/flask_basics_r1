@@ -3,6 +3,7 @@ from base64 import b64encode
 from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_sqlalchemy import SQLAlchemy
+from application.settings import database
 
 # Where am I ?
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -26,17 +27,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:YOUR_PASSWORD@aa1ho1ni9nfz56e.cp1kaaiuayns.us-east-1.rds.amazonaws.com/cust_ref_db'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:YOUR_PASSWORD@aay9qgi0q2ps45.cp1kaaiuayns.us-east-1.rds.amazonaws.com/cust_ref_db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:passwords["DB_PASSWORD"]@localhost/cust_ref_db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:passwords["DB_PASSWORD"]@localhost/cust_ref_db'
 #application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir,'jimsDB.db')
 
 #Remote connect to RaspPi (Stan)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:YOUR_PASSWORD@overlook-mountain.com:12498/cust_ref_db'
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:YOUR_PASSWORD@stan/cust_ref_db'
-
-
-
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:passwords["DB_PASSWORD"]@stan/cust_ref_db'
 
 # Create db for SQL Alchemy
 db = SQLAlchemy(app)
