@@ -1,6 +1,6 @@
 __author__ = 'jpisano'
 #from datetime import datetime
-from my_secrets import passwords
+from application.my_secrets import passwords
 
 #database configuration settings
 database = dict(
